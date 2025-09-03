@@ -29,6 +29,7 @@ def main():
         total_damage += damage
         print(f"Hero attacks {target_goblin.name} for {damage} damage!")
         target_goblin.take_damage(damage)
+        total_damage += damage
 
         # Check if the target goblin was defeated
         if not target_goblin.is_alive():
@@ -42,6 +43,7 @@ def main():
                 total_damage += damage
                 print(f"{goblin.name} attacks hero for {damage} damage!")
                 hero.receive_damage(damage)
+                total_damage += damage
 
     # Determine outcome
     if hero.is_alive():
@@ -49,9 +51,10 @@ def main():
     else:
         print(f"\nThe hero has been defeated. Game Over. (｡•́︿•̀｡)")
 
+    
+     # Final tally of goblins defeated
     print(f"\nTotal damage dealt: {total_damage}")
     print(f"Total rounds fought: {rounds}")
-    # Final tally of goblins defeated
     print(f"\nTotal goblins defeated: {defeated_goblins} / {len(goblins)}")
 
 if __name__ == "__main__":

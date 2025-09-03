@@ -15,15 +15,18 @@ class Hero:
     
     def __init__(self, name):
         self.name = name
-        self.health = 845
-        self.attack_power = random.randint(10, 30)      
+        self.health = 150
+        self.attack_power = random.randint(15, 20)      
     
 
     def strike(self):
-        # TODO Implement the hero's attack logic. It could be stronger or more consistent than a goblin's.
+        return random.randint(10, self.attack_power)
     
     def receive_damage(self, damage):
-        # TODO Implement take_damage
-        # TODO We should prevent health from going into the NEGATIVE
+        self.health -= damage
+        if self.health < 0:
+            self.health = 0
+
+    def is_alive(self):
+        return self.health > 0
     
-    #TODO define is_alive

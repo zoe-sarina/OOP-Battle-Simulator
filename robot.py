@@ -25,8 +25,9 @@ class ChatGPT(Enemy):
         attack = self.base_attack_power + bonus
         # critical hit
         if random.random() < self.crit_hit_chance:
-            attack *= self.crit_mulitplier
-            print(f" Critical Hit by {self.name}!")
+            attack *= self.crit_multiplier
+            print(f"🔥 Critical Hit by {self.name}! 🔥")
+        return attack
 
     def take_damage(self, damage):
         self.health -= damage

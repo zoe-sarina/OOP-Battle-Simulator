@@ -1,6 +1,7 @@
 import random
 from goblin import Goblin
 from hero import Hero
+from robot import ChatGPT
 
 def main():
     print("Welcome to the Battle Arena!")
@@ -51,7 +52,14 @@ def main():
     else:
         print(f"\nThe hero has been defeated. Game Over. (｡•́︿•̀｡)")
 
-    
+    if hero.is_alive():
+        print("Boss Fight Time!")
+        CHATGPT = CHATGPT("Bob")
+        while hero.is_alive() and CHATGPT.is_alive():
+            damage = hero.strike()
+            CHATGPT.take_damage(damage)
+            hero.take_damage(damage)
+
      # Final tally of goblins defeated
     print(f"\nTotal damage dealt: {total_damage}")
     print(f"Total rounds fought: {rounds}")

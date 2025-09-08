@@ -23,10 +23,11 @@ class Hero:
         return random.randint(10, self.attack_power)
     
     def receive_damage(self, damage):
-        self.health -= damage
+        reduced = int(damage * 0.75) # reduce damage by 25%
+        self.health -= reduced
         if self.health < 0:
             self.health = 0
-
+        print(f"\n{self.name} takes {reduced} damage (reduced from {damage}). Health is now {self.health}.")
     def is_alive(self):
         return self.health > 0
     
